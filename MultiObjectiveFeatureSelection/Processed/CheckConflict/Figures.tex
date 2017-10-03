@@ -1,0 +1,62 @@
+\documentclass{report}
+\usepackage[cm]{fullpage}
+\usepackage{amsmath}
+\usepackage{subfig}
+\usepackage{siunitx}
+\usepackage{graphicx}
+
+
+\newcommand{\shortTable}[2][]{
+\begin{table}
+\centering
+\caption{#1}
+{#2}
+\end{table}}
+
+\newcommand{\insertfigure}[4][]{
+\begin{figure}
+	\centering
+	%\subfloat[Balance]{\includegraphics[width = .33\textwidth]{Draw/Graphs/#1/BALANCE.pdf}}
+	\subfloat[#1]{\includegraphics[width = \textwidth]{Graphs/#4/#1.png}}
+	\subfloat[#2]{\includegraphics[width = \textwidth]{Graphs/#4/#2.png}}
+	\subfloat[#3]{\includegraphics[width = \textwidth]{Graphs/#4/#3.png}}
+	\caption{#4}
+\end{figure}
+}
+
+\begin{document}
+\begin{figure}
+	\centering
+	%\subfloat[Balance]{\includegraphics[width = .33\textwidth]{Draw/Graphs/#1/BALANCE.pdf}}
+	\subfloat[Australian]{\includegraphics[width = 0.33\textwidth]{Graphs/Full/australian.png}}
+	\subfloat[Vehicle]{\includegraphics[width = 0.33\textwidth]{Graphs/Full/vehicle.png}}
+	\subfloat[WBCD]{\includegraphics[width = 0.33\textwidth]{Graphs/Full/wbcd.png}}
+	
+	\subfloat[Sonar]{\includegraphics[width = 0.33\textwidth]{Graphs/Full/sonar.png}}
+	\subfloat[Hillvalley]{\includegraphics[width = 0.33\textwidth]{Graphs/Full/hillvalley.png}}
+	\subfloat[Musk1]{\includegraphics[width = 0.33\textwidth]{Graphs/Full/musk1.png}}
+	
+	\subfloat[Arrhythmia]{\includegraphics[width = 0.33\textwidth]{Graphs/Full/arrhythmia.png}}
+	\subfloat[Madelon]{\includegraphics[width = 0.33\textwidth]{Graphs/Full/madelon.png}}
+	\subfloat[Multiple Features]{\includegraphics[width = 0.33\textwidth]{Graphs/Full/multiplefeatures.png}}
+	\caption{Full}
+\end{figure}
+
+\begin{figure}
+	\centering
+	%\subfloat[Balance]{\includegraphics[width = .33\textwidth]{Draw/Graphs/#1/BALANCE.pdf}}
+	\subfloat[Australian]{\includegraphics[width = 0.33\textwidth]{Graphs/Dominate/australian.png}}
+	\subfloat[Vehicle]{\includegraphics[width = 0.33\textwidth]{Graphs/Dominate/vehicle.png}}
+	\subfloat[WBCD]{\includegraphics[width = 0.33\textwidth]{Graphs/Dominate/wbcd.png}}
+	
+	\subfloat[Sonar]{\includegraphics[width = 0.33\textwidth]{Graphs/Dominate/sonar.png}}
+	\subfloat[Hillvalley]{\includegraphics[width = 0.33\textwidth]{Graphs/Dominate/hillvalley.png}}
+	\subfloat[Musk1]{\includegraphics[width = 0.33\textwidth]{Graphs/Dominate/musk1.png}}
+	
+	\subfloat[Arrhythmia]{\includegraphics[width = 0.33\textwidth]{Graphs/Dominate/arrhythmia.png}}
+	\subfloat[Madelon]{\includegraphics[width = 0.33\textwidth]{Graphs/Dominate/madelon.png}}
+	\subfloat[Multiple Features]{\includegraphics[width = 0.33\textwidth]{Graphs/Dominate/multiplefeatures.png}}
+	\caption{Non-dominated solutions}
+\end{figure}
+
+\end{document}
