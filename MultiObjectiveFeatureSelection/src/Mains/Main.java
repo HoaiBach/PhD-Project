@@ -53,6 +53,7 @@ public class Main {
 	 * @throws FileNotFoundException
 	 */
 	public static void main(String[] args) throws FileNotFoundException{
+		//test changing
 		int type = Integer.parseInt(args[0]);
 		int r = Integer.parseInt(args[1]);
 		long seeder = (long) (Math.pow(10, 6)*(r+3));
