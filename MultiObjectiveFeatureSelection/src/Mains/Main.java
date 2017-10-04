@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import org.uma.jmetal.algorithm.Algorithm;
 import org.uma.jmetal.algorithm.multiobjective.moead.AbstractMOEAD.FunctionType;
@@ -31,14 +34,13 @@ import org.uma.jmetal.operator.impl.selection.BinaryTournamentSelection;
 import org.uma.jmetal.operator.impl.selection.TournamentSelection;
 import org.uma.jmetal.problem.DoubleProblem;
 import org.uma.jmetal.problem.Problem;
+import org.uma.jmetal.problem.multiobjective.FeatureSelection.FeatureSelection;
+import org.uma.jmetal.problem.multiobjective.FeatureSelection.HelpDataset;
 import org.uma.jmetal.solution.DoubleSolution;
 import org.uma.jmetal.util.AlgorithmRunner;
 import org.uma.jmetal.util.evaluator.SolutionListEvaluator;
 import org.uma.jmetal.util.evaluator.impl.SequentialSolutionListEvaluator;
 import org.uma.jmetal.util.pseudorandom.JMetalRandom;
-
-import org.uma.jmetal.problem.multiobjective.FeatureSelection.FeatureSelection;
-import org.uma.jmetal.problem.multiobjective.FeatureSelection.HelpDataset;
 
 import Utility.RandomSeed;
 import net.sf.javaml.core.Dataset;
@@ -53,8 +55,6 @@ public class Main {
 	 * @throws FileNotFoundException
 	 */
 	public static void main(String[] args) throws FileNotFoundException{
-		//test changing
-		//now change it
 		int type = Integer.parseInt(args[0]);
 		int r = Integer.parseInt(args[1]);
 		long seeder = (long) (Math.pow(10, 6)*(r+3));
@@ -299,18 +299,31 @@ public class Main {
 			index++;
 		}
 		pt.println("========Final Solution=========");
+		Map<Double,Double> nfTrAcc = new TreeMap<Double,Double>();
+		Map<Double,Double> nfTeAcc = new TreeMap<Double,Double>();
 		for(DoubleSolution solution: pop){
-			double[] features = fs.solutionToBits(solution);
-			Dataset tempTrain = fs.getTraining().copy();
-			Dataset tempTest = fs.getTesting().copy();
-			tempTrain = HelpDataset.removeFeatures(tempTrain, features);
-			tempTest = HelpDataset.removeFeatures(tempTest, features);
-			double testError = 1- fs.getClassifier().classify(tempTrain, tempTest);
-			pt.println(solution.getObjective(0)+","+solution.getObjective(1)+","+testError);
+			if(!nfTrAcc.containsKey(solution.getObjective(0))){
+				double[] features = fs.solutionToBits(solution);
+				Dataset tempTrain = fs.getTraining().copy();
+				Dataset tempTest = fs.getTesting().copy();
+				tempTrain = HelpDataset.removeFeatures(tempTrain, features);
+				tempTest = HelpDataset.removeFeatures(tempTest, features);
+				double testError = 1- fs.getClassifier().classify(tempTrain, tempTest);
+				nfTrAcc.put(solution.getObjective(0), solution.getObjective(1));
+				nfTeAcc.put(solution.getObjective(0), testError);
+			}
 			for(int i=0;i<solution.getNumberOfVariables()-1;i++)
 				pt1.print(solution.getVariableValue(i)+",");
 			pt1.println(solution.getVariableValue(solution.getNumberOfVariables()-1));
 		}
+		
+		for(Entry<Double,Double> entry: nfTrAcc.entrySet()){
+			double nf = entry.getKey();
+			double tr = entry.getValue();
+			double te = nfTeAcc.get(nf);
+			pt.println(nf+", "+tr+", "+te);
+		}
+		
 		pt2.println(computingTime);
 		pt.close();
 		pt1.close();
