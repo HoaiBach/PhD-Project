@@ -21,7 +21,7 @@ import org.uma.jmetal.util.JMetalException;
 public class MOEADDYN extends AbstractMOEAD<DoubleSolution>{
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	private DifferentialEvolutionCrossover differentialEvolutionCrossover;
@@ -159,7 +159,7 @@ public class MOEADDYN extends AbstractMOEAD<DoubleSolution>{
 
 	/**
 	 * Allocate the free referecents in the interval (low,up]
-	 * Every time the free referecens are reallocated 
+	 * Every time the free referecens are reallocated
 	 * need to re-initialize the neighbour hood
 	 * if necessary, repair the solutions
 	 * @param low
@@ -185,7 +185,7 @@ public class MOEADDYN extends AbstractMOEAD<DoubleSolution>{
 
 	/**
 	 * allocate "size" reference points to the interval
-	 * low (exclusive) and up (inclusive), this one 
+	 * low (exclusive) and up (inclusive), this one
 	 * checks to avoid duplicated reference
 	 * @param low
 	 * @param up
@@ -342,7 +342,7 @@ public class MOEADDYN extends AbstractMOEAD<DoubleSolution>{
 				updateNeighborhood(child, subProblemId, neighborType);
 			}
 
-			//if 2 objectives are still conflicting and 
+			//if 2 objectives are still conflicting and
 			//it is time to check whether the 2 objectives are conlicting
 			if(stillConflicting && iteration == ((currentInterval+1)*iterationInterval-1))
 			{
@@ -384,20 +384,20 @@ public class MOEADDYN extends AbstractMOEAD<DoubleSolution>{
 
 			//check for the same one in the population before evaluating
 			//if there exist some solutions then create a random position
-			if(!stillConflicting){
-				List<Integer> indexToRandom = checkForDuplicate();
-				for(int index: indexToRandom){
-					DoubleSolution sol = this.population.get(index);
-					double refRate = this.refPoints[index];
-					((FeatureSelection)this.problem).increaseSizeRandom(sol, refRate);
-					this.problem.evaluate(sol);
-				}
+			List<Integer> indexToRandom = checkForDuplicate();
+			for(int index: indexToRandom){
+				//DoubleSolution sol = this.population.get(index);
+				double refRate = this.refPoints[index];
+				//((FeatureSelection)this.problem).increaseSizeRandom(sol, refRate);
+				DoubleSolution sol = ((FeatureSelection)this.problem).createSolutionRandom(refRate);
+				this.problem.evaluate(sol);
+				this.population.set(index, sol);
 			}
 
 			updateExternalPopulation();
 			iteration++;
 
-		} 
+		}
 	}
 
 	/**
