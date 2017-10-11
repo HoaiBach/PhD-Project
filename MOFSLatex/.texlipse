@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Wed Oct 11 13:06:22 NZDT 2017
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=bare_jrnl.tex
+outputFile=bar_jrnl.pdf
+langSpell=en
+markDer=true
+srcDir=
