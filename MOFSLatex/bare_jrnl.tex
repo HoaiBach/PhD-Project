@@ -482,7 +482,9 @@ general classifiers \cite{chen2017feature}. However, feature selection is
 challenging due to its large search space, which is exponentially increased with
 respect to the number of features. It is impractical to consider all possible
 feature subsets, so an efficient search mechanism is needed to generate the
-promising candidate subsets. In addition, complex interactions between features
+promising candidate subsets. In addition, complex interactions between features are important to capture in feature selection. Simply selecting individually good features may results in redundant features, while combining weakly relevant features sometimes improves the classification performance significantly. It is shown that considering the feature interaction leads to a high classification accuracy \cite{Nguyen2016}, but it is not an easy task, especially when evaluating feature subsets without a classification algorithm.
+
+Recently, evolutionary computation (EC) techniques such as genetic algorithms, genetic programming or particle swarm optimization have been widely applied to feature selection because of their potential global search ability. Furthermore, feature selection can be considered a multi-objective problem since its two main objectives: reducing number of features and improving the classification performance, are usually conflicting with each other. As a population-based optimization family, EC can be naturally applied to evolve a set of trade-off solutions for multi-objective problems, including feature selection. A number of different multi-objective EC (EMO) algorithms have been proposed. Some EMO algorithms evaluate candidate solutions by using a Pareto dominance relation together with a crowding distance to maintain the population's diversity, which are called Pareto dominance-based algorithms \cite{ishibuchi2009adaptation}.
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
