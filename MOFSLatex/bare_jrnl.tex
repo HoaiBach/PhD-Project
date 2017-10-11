@@ -20,7 +20,7 @@
 %% Legal Notice:
 %% This code is offered as-is without any warranty either expressed or
 %% implied; without even the implied warranty of MERCHANTABILITY or
-%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% FITNESS FOR A PARTICULAR PURPOSE!
 %% User assumes all risk.
 %% In no event shall the IEEE or any contributor to this code be liable for
 %% any damages or losses, including, but not limited to, incidental,
@@ -133,7 +133,7 @@
 % graphicx was written by David Carlisle and Sebastian Rahtz. It is
 % required if you want graphics, photos, etc. graphicx.sty is already
 % installed on most LaTeX systems. The latest version and documentation
-% can be obtained at: 
+% can be obtained at:
 % http://www.ctan.org/pkg/graphicx
 % Another good source of documentation is "Using Imported Graphics in
 % LaTeX2e" by Keith Reckdahl which can be found at:
@@ -291,8 +291,8 @@
 % \let\MYoriglatexcaption\caption
 % \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
 %\fi
-% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
-% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and
+% Axel Sommerfeldt. This package may be useful when used in conjunction with
 % IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
 % submissions have lists of figures/tables at the end of the paper and that
 % figures/tables without any captions are placed on a page by themselves at
@@ -321,7 +321,7 @@
 % http://www.ctan.org/pkg/endfloat
 %
 % The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
-% later in the document, say, to conditionally put the References on a 
+% later in the document, say, to conditionally put the References on a
 % page by themselves.
 
 
@@ -380,10 +380,10 @@
 %\thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
 %\thanks{Manuscript received April 19, 2005; revised August 26, 2015.}}
 
-% note the % following the last \IEEEmembership and also \thanks - 
+% note the % following the last \IEEEmembership and also \thanks -
 % these prevent an unwanted space from occurring between the last author name
 % and the end of the author line. i.e., if you had this:
-% 
+%
 % \author{....lastname \thanks{...} \thanks{...} }
 %                     ^------------^------------^----Do not want these spaces!
 %
@@ -405,7 +405,7 @@
 %{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for IEEE Journals}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
-% 
+%
 % *** Note that you probably will NOT want to include the author's ***
 % *** name in the headers of peer review papers.                   ***
 % You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
@@ -460,9 +460,29 @@ MOEA/D, Feature Selection, Classification, Multi-objective
 
 
 \section{Introduction}
-Nowadays, rapid advancements of technologies results in real-world datasets with exponential increment in both dimensionality and sample size. However, the growth in quantity does not necessarily lead to an improvement in quality. In fact, high-dimensionality datasets usually suffer a high level of noise caused mainly by the technologies or devices used to collect data. The noisy features (i.e. irrelevant) may even dominate true signals from relevant features. Meanwhile, redundant features do not add any new information but they cause a longer training time. Therefore, it is challenging for a machine learning algorithm to extract useful knowledge from such datasets. For example, the performance of classification is significantly deteriorated when increasing the number of features from 40 to 200 due to noise accumulation \cite{fan2014challenges}.
+Nowadays, rapid advancements of technologies results in real-world datasets with
+exponential increment in both dimensionality and sample size. However, the
+growth in quantity does not necessarily lead to an improvement in quality. In
+fact, high-dimensionality datasets usually suffer a high level of noise caused
+mainly by the technologies or devices used to collect data. The noisy features
+(i.e. irrelevant) may even dominate true signals from relevant features.
+Meanwhile, redundant features do not add any new information but they cause a
+longer training time. Therefore, it is challenging for a machine learning
+algorithm to extract useful knowledge from such datasets. For example, the
+performance of classification is significantly deteriorated when increasing the
+number of features from 40 to 200 due to noise accumulation
+\cite{fan2014challenges}.
 
-Feature selection is one of the most popular techniques to improve quality of a feature set. Specifically, for the classification problem, feature selection aims to extract a small feature subset with a high discriminating ability. Removing irrelevant and redundant features not only improves the classification performance (effectiveness and efficiency) but also yields simpler and more general classifiers \cite{chen2017feature}. However, feature selection is challenging due to its large search space, which is exponentially increased with respect to the number of features. It is impractical to consider all possible feature subsets, so an efficient search mechanism is needed to generate the promising candidate subsets. In addition, complex interactions between features 
+Feature selection is one of the most popular techniques to improve quality of a
+feature set. Specifically, for the classification problem, feature selection
+aims to extract a small feature subset with a high discriminating ability.
+Removing irrelevant and redundant features not only improves the classification
+performance (effectiveness and efficiency) but also yields simpler and more
+general classifiers \cite{chen2017feature}. However, feature selection is
+challenging due to its large search space, which is exponentially increased with
+respect to the number of features. It is impractical to consider all possible
+feature subsets, so an efficient search mechanism is needed to generate the
+promising candidate subsets. In addition, complex interactions between features
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
@@ -480,7 +500,7 @@ Feature selection is one of the most popular techniques to improve quality of a 
 %\begin{figure}[!t]
 %\centering
 %\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
+% where an .eps filename suffix will be assumed under latex,
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
 %\caption{Simulation results for the network.}
@@ -496,7 +516,7 @@ Feature selection is one of the most popular techniques to improve quality of a 
 % The subfigure \label commands are set within each subfloat command,
 % and the \label for the overall figure must come after \caption.
 % \hfil is used as a separator to get equal spacing.
-% Watch out that the combined width of all the subfigures on a 
+% Watch out that the combined width of all the subfigures on a
 % line do not exceed the text width or a line break will occur.
 %
 %\begin{figure*}[!t]
@@ -553,7 +573,7 @@ Feature selection is one of the most popular techniques to improve quality of a 
 % in-text middle ("here") positioning is typically not used, but it
 % is allowed and encouraged for Computer Society conferences (but
 % not Computer Society journals). Most IEEE journals/conferences use
-% top floats exclusively. 
+% top floats exclusively.
 % Note that, LaTeX2e, unlike IEEE journals/conferences, places
 % footnotes above bottom floats. This can be corrected via the
 % \fnbelowfloat command of the stfloats package.
@@ -632,7 +652,7 @@ The authors would like to thank...
 % (used to reserve space for the reference number labels box)
 
 % biography section
-% 
+%
 % If you have an EPS/PDF photo (graphicx package needed) extra braces are
 % needed around the contents of the optional argument to biography to prevent
 % the LaTeX parser from getting confused when it sees the complicated
